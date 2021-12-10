@@ -4,17 +4,19 @@ const bcrypt = require('bcrypt');
 const DataSchema = new mongoose.Schema({
     nome_usuario: String,
     email_usuario: String,
-    tipo_usuario:{type:Number, default:1},
-    senha_usuario: String
+    tipo_usuario: { type: Number, default: 1 },
+    senha_usuario: String,
 }, {
-    timestamps: true
+    timestamp: true
 });
 
-DataSchema.pre('save',function(next){
-    if(!this.isModified("senha_usuario")){
+
+//Function para criptografar a senha antes de gravar
+DataSchema.pre('save', function (next) {
+    if (!this.isModified("senha_usuario")) {
         return next();
     }
-    this.senha_usuario = bcrypt.hashSync(this.senha_usuario,10);
+    this.senha_usuario = bcrypt.hashSync(this.senha_usuario, 10);
     next();
 });
 
@@ -26,5 +28,5 @@ DataSchema.pre('findOneAndUpdate', function (next){
     next();
 });
 
-const usuarios = mongoose.model('Usuarios',DataSchema);
+const usuarios = mongoose.model('Usuarios', DataSchema);
 module.exports = usuarios;
