@@ -6,7 +6,7 @@ const DataSchema = new mongoose.Schema({
     preco_produto:Number,
     qtd_produto: {type:Number, default:0}
 }, {
-    timestamp: true
+    timestamps: true
 });
 
 const produtos = mongoose.model('Produtos', DataSchema);

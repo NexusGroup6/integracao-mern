@@ -1,13 +1,12 @@
 import React from 'react';
-import Inicio from './pages/client/painel';
+import Home from '../src/pages/client/home';
 import Routes from './routes';
 
 function App() {
   return (
     <div className="App">
-     <Routes />
+      <Routes />
     </div>
   );
 }
-
 export default App;

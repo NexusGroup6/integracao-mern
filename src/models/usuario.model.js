@@ -7,7 +7,7 @@ const DataSchema = new mongoose.Schema({
     tipo_usuario: { type: Number, default: 1 },
     senha_usuario: String,
 }, {
-    timestamp: true
+    timestamps: true
 });
 
 
@@ -27,6 +27,16 @@ DataSchema.pre('findOneAndUpdate', function (next){
     }
     next();
 });
+
+DataSchema.methods.isCorrectPassword = function (password, callback){
+    bcrypt.compare(password, this.senha_usuario, function(err,same){
+        if(err){
+            callback(err);
+        }else {
+            callback(err, same);
+        }
+    });
+}
 
 const usuarios = mongoose.model('Usuarios', DataSchema);
 module.exports = usuarios;
