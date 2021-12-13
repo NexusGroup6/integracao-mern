@@ -1,7 +1,7 @@
 /*import React, { useEffect, useState } from 'react';
 import api from './api';
 import { login, logout, getToken } from './auth';
-import { Route, Redirect } from 'react-router-dom';
+import { Route, Navigate } from 'react-router-dom';
 
 export default function wAuth({ component: Component, ...rest }) {
     const [redirect, setRedirect] = useState(false);
@@ -27,7 +27,7 @@ export default function wAuth({ component: Component, ...rest }) {
         loading ? 'Carregando...' : <Route {...rest}
             render={props => !redirect ? (
                 <Component {...props} />
-            ) : <Redirect to={{ pathname: "/admin/login", state: { from: props.location } }} />
+            ) : <Navigate to={{ pathname: "/admin/login", state: { from: props.location } }} />
             } />
     );
 

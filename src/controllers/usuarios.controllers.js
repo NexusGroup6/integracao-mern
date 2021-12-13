@@ -95,18 +95,28 @@ module.exports = {
             }
         });
     },
-   async checkToken(req,res){
-       const token = req.body.token || req.query.token || req.cookies.token || req.headers['x-acess-token'];
-       if(!token){
-           res.json({status:401,msg:'Não autorizado: Token inexistente!'});
-       }else {
-           jwt.verify(token, secret, function(err, decoded){
-               if(err){
-                   res.json({status:401,msg:'Não autorizado: Token inválido!'});
-               }else {
-                   res.json({status:200});
-               }
-           });
-       }
-   }
+    async checkToken(req, res) {
+        const token = req.body.token || req.query.token || req.cookies.token || req.headers['x-acess-token'];
+        if (!token) {
+            res.json({ status: 401, msg: 'Não autorizado: Token inexistente!' });
+        } else {
+            jwt.verify(token, secret, function (err, decoded) {
+                if (err) {
+                    res.json({ status: 401, msg: 'Não autorizado: Token inválido!' });
+                } else {
+                    res.json({ status: 200 });
+                }
+            });
+        }
+    },
+
+    async destroyToken(req, res) {
+        const token = req.headers.token;
+        if (token) {
+            res.cookie('token', null, { httpOnly: true });
+        } else {
+            res.status(401).send("Logout não autorizado!");
+        }
+        res.send("Sessão finazalida com sucesso!");
+    }
 }

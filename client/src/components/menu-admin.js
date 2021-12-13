@@ -12,6 +12,8 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
+import {getNomeUsuario} from '../services/auth';
+import logoSistema from '../assets/img/nexus.png';
 
 
 
@@ -106,7 +108,7 @@ export default function MenuAdmin({title}) {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         {title}
                     </Typography>
-
+                   {getNomeUsuario()}
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -117,6 +119,7 @@ export default function MenuAdmin({title}) {
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
+                    <img style={{width:150, height:50}} src={logoSistema} alt="Logo Sistema" />
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>

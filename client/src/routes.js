@@ -16,10 +16,10 @@ import Login from './pages/admin/login';
 
 
 //IMPORTS CLIENT!!!
-import Home from './pages/client/home';
+import Home from './pages/admin/login';
 import ProdutoDetails from './pages/client/produtos/produtos.details';
 
-import PrivateRoute from './services/wAuth';
+/*import PrivateRoute from './services/wAuth';*/
 
 export default function Rotas() {
     return (
