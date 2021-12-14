@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Box from '@material-ui/core/Box';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
+/* import Paper from '@material-ui/core/Paper'; */
 import ImgAdmin from '../../../assets/img/nexus.png';
 import MenuAdmin from '../../../components/menu-admin';
 import Footer from '../../../components/footer-admin';
@@ -45,7 +45,7 @@ export default function Dashboard() {
                 <div className={classes.appBarSpacer} />
                 <Container maxWidth="lg" className={classes.container}>
                     <Grid container spacing={3}>
-                        <img src={ImgAdmin} />
+                        <img style={{width:1100,height:505}} src={ImgAdmin} alt="img-dashboard" />
                     </Grid>
                     <Box pt={4}>
                         <Footer />

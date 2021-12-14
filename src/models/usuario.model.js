@@ -29,13 +29,13 @@ DataSchema.pre('findOneAndUpdate', function (next){
 });
 
 DataSchema.methods.isCorrectPassword = function (password, callback){
-    bcrypt.compare(password, this.senha_usuario, function(err,same){
+    bcrypt.compare(password, this.senha_usuario,function(err,same){
         if(err){
             callback(err);
-        }else {
+        }else{
             callback(err, same);
         }
-    });
+    })
 }
 
 const usuarios = mongoose.model('Usuarios', DataSchema);

@@ -12,10 +12,9 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
-import {getNomeUsuario} from '../services/auth';
-import logoSistema from '../assets/img/nexus.png';
 
-
+import { getNomeUsuario } from '../services/auth';
+import logoSistema from '../assets/img/hope.png';
 
 const drawerWidth = 240;
 const useStyles = makeStyles((theme) => ({
@@ -27,7 +26,7 @@ const useStyles = makeStyles((theme) => ({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'flex-end',
-        padding: '0 8px',
+        padding: '0 24px',
         ...theme.mixins.toolbar,
     },
     appBar: {
@@ -108,7 +107,7 @@ export default function MenuAdmin({title}) {
                     <Typography component="h1" variant="h6" color="inherit" noWrap className={classes.title}>
                         {title}
                     </Typography>
-                   {getNomeUsuario()}
+                    {getNomeUsuario()}
                 </Toolbar>
             </AppBar>
             <Drawer
@@ -119,7 +118,7 @@ export default function MenuAdmin({title}) {
                 open={open}
             >
                 <div className={classes.toolbarIcon}>
-                    <img style={{width:150, height:50}} src={logoSistema} alt="Logo Sistema" />
+                    <img style={{width:100, height:100}} src={logoSistema} alt="logo-system" />
                     <IconButton onClick={handleDrawerClose}>
                         <ChevronLeftIcon />
                     </IconButton>

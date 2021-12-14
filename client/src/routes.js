@@ -12,14 +12,14 @@ import ProdutoCadastrar from './pages/admin/produtos/produtos.cadastrar';
 import Usuarios from './pages/admin/usuarios';
 import UsuarioEditar from './pages/admin/usuarios/usuarios.editar';
 import UsuarioCadastrar from './pages/admin/usuarios/usuarios.cadastrar';
-import Login from './pages/admin/login';
 
 
 //IMPORTS CLIENT!!!
 import Home from './pages/admin/login';
 import ProdutoDetails from './pages/client/produtos/produtos.details';
+import Login from './pages/admin/login';
 
-/*import PrivateRoute from './services/wAuth';*/
+import PrivateRoute from './services/wAuth';
 
 export default function Rotas() {
     return (
@@ -31,7 +31,7 @@ export default function Rotas() {
 
                 {/*ROTA ADMIN */}
                 <Route path="/admin" exact element={<Dashboard/>} />
-                <Route path="/admin/login" exact element={<Login/>} />
+                   <Route path="/admin/login" exact element={<Login/>} />
 
                 <Route path="/admin/produtos" exact element={<Produtos/>} />
                 <Route path="/admin/produtos/cadastrar" exact element={<ProdutoCadastrar/>} />

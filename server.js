@@ -8,7 +8,7 @@ const routes = require('./src/routes');
 const app = express();
 const port = process.env.PORT || 5000;
 
-mongoose.connect('mongodb://localhost:27017/crud',{
+mongoose.connect('mongodb://localhost:27017/projeto-mern',{
     useUnifiedTopology:true,
     useNewUrlParser:true,
    // useFindAndModify:false
